@@ -1,37 +1,32 @@
-# 天哥2 QQQ + TQQQ 策略整理
+# QQQ / TQQQ Strategy Research
 
-本目录基于视频《普通人可以复制的百万美金之路。就靠两只ETF, 不用选股, 不用盯盘。》和你提供的字幕文件整理而成。
+An open research project for a QQQ-signal and TQQQ-execution framework. It includes an approximate backtest, stage-based portfolio research, and a paper-trading scaffold.
 
-## 文件说明
+## Contents
 
-- `01_清洗字幕.md`
-  - 按时间轴清洗后的字幕稿。
-  - 只修正明显的错词、乱码、重复口误和不通顺表达，没有做逐字考据。
+- `strategy_rules.md` — asset roles and stage definitions.
+- `backtest_results.md` — assumptions, results, and limitations.
+- `performance_comparison.md` — benchmark comparison.
+- `broker_evaluation.md` — broker and automation considerations.
+- `indicators_and_execution.md` — formulas and decision flow.
+- `api_and_setup.md` — configuration and setup checklist.
+- `windows_task_scheduler.md` — local scheduling guide.
+- `autotrade/` — Alpaca paper / IBKR gateway scaffold.
+- `research_outputs/` — generated equity curves, summaries, and trade records.
 
-- `02_策略总结.md`
-  - 把视频里的核心交易规则、资金分层、仓位配比、风险控制拆成可执行条目。
+## Reproducibility
 
-- `03_回测结果.md`
-  - 说明我如何把视频口播规则转成可回测模型。
-  - 给出阶段一和阶段二的近似回测结果与解读。
+The source material is an informal strategy description, so several details require explicit assumptions. Results are approximate research outputs, not a live-account reconstruction or a performance promise. Review transaction costs, assignment, margin, slippage, leverage decay, and out-of-sample behavior before using any result.
 
-- `outputs/`
-  - 程序化输出文件。
-  - 包含 `stage1_summary.json`、`stage2_summary.json`、权益曲线 CSV、交易明细 CSV。
+## Quick start
 
-## 快速结论
+```powershell
+node backtest_tianbro_qqq_tqqq.js
+```
 
-- 这套视频策略本质上不是单一策略，而是一个三阶段资本路线图：
-  - `2万 -> 10万`：`QQQ` 给信号，`TQQQ` 做轮子策略，叠加每月持续入金。
-  - `10万 -> 100万`：引入 `QQQ/QQQM` 底仓和 `QQQ LEAPS`，形成“底仓 + 现金流 + 杠杆加速”三足鼎立。
-  - `100万+`：逐步提高底仓比例，把期权现金流当成退休现金流。
+The paper-trading scaffold is preview-first. Never commit `.env`, account state, or runtime logs.
 
-- 视频里最具体、最容易落地回测的部分是第一阶段的 `TQQQ Wheel`。
+## Contribution and risk
 
-- 阶段二组合回测结果很亮眼，但最大回撤也很大，尤其是 `LEAPS` 这部分会显著放大组合波动，不能把它理解成低波动养老组合。
+See `CONTRIBUTING.md` for reproducibility requirements. TQQQ, options, and margin can create substantial losses. This repository is for education and research only and is not investment advice.
 
-## 重要说明
-
-- 视频是口播内容，不是完整交易手册，很多细节没有精确量化。
-- 因此回测是“基于视频规则的近似实现”，不是作者真实账户的逐笔复盘。
-- 我在 `03_回测结果.md` 里明确列出了所有关键假设。
