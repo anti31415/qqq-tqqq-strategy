@@ -1,0 +1,26 @@
+{
+  "model": "Stage 2 approximate allocation model from the video",
+  "ageAssumption": 30,
+  "startCapital": 100000,
+  "monthlyContribution": 1500,
+  "allocation": {
+    "coreQqqProxy": 0.5,
+    "cashReserve": 0.1,
+    "tqqqWheel": 0.32,
+    "qqqLeaps": 0.08
+  },
+  "qqqmProxy": "QQQ adjusted close used as long-history proxy for QQQM",
+  "endingEquity": 3306316.7344618053,
+  "totalContributed": 350500,
+  "multipleOnContributedCapital": 9.433143322287604,
+  "moneyWeightedReturn": 0.23059067406555528,
+  "maxDrawdown": -0.6032290584956496,
+  "completedWheelCycles": 37,
+  "wheelStopLosses": 3,
+  "assumptions": {
+    "wheelSignal": "QQQ > SMA200, RSI(14) < 50, and QQQ closes down on the day",
+    "wheelSizing": "fractional contract sizing used as portfolio-level approximation",
+    "leaps": "continuous deep-ITM (~delta 0.8) 2Y QQQ LEAPS call, rolled when 1Y remains",
+    "reallocation": "new monthly contributions split by target weights; no full monthly rebalance"
+  }
+}

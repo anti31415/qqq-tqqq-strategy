@@ -1,0 +1,26 @@
+{
+  "model": "Stage 1 wheel-only approximation from the video",
+  "startCapital": 20000,
+  "monthlyContribution": 1500,
+  "targetEquity": 100000,
+  "reachedTarget": true,
+  "reachedTargetDate": "2016-05-02",
+  "daysToTarget": 1583,
+  "contributedAtTarget": 99500,
+  "equityAtTarget": 100537.42229684365,
+  "excessOverContributionsAtTarget": 1037.4222968436516,
+  "endingEquity": 276547.64141669136,
+  "totalContributed": 270500,
+  "completedCycles": 37,
+  "assignedCount": 12,
+  "stopLosses": 3,
+  "maxDrawdown": -0.2162520781974546,
+  "moneyWeightedReturn": 0.002192475914303626,
+  "assumptions": {
+    "signal": "QQQ > SMA200, RSI(14) < 50, and QQQ closes down on the day",
+    "wheel": "~33 calendar DTE cash-secured put on TQQQ, one contract max",
+    "putStrike": "8% OTM, rounded to nearest $1",
+    "coveredCall": "after bullish assignment, sell 33 DTE covered call at original put strike",
+    "bearRule": "if assigned while QQQ is at or below SMA200, exit the TQQQ shares immediately"
+  }
+}
